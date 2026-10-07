@@ -142,13 +142,35 @@ CampusCore-Student-Management
 
 │
 
+├── images
+
+│   ├── Registration.png
+
+│   ├── DuplicateStudent.png
+
+│   ├── Studentlist.png
+
+│   ├── search.png
+
+│   ├── Edit.png
+
+│   ├── Delete.png
+
+│   └── Datatbase.png
+
+│
+
 ├── pom.xml
 
 ├── README.md
 
 └── .gitignore
 
-Database
+```
+
+
+
+\## Database
 
 
 
@@ -160,7 +182,11 @@ The database setup script is provided in:
 
 
 
+```text
+
 database/student\_db.sql
+
+```
 
 
 
@@ -168,7 +194,7 @@ The database contains student information required by the application.
 
 
 
-Database Configuration
+\## Database Configuration
 
 
 
@@ -176,7 +202,11 @@ The database connection is handled through:
 
 
 
+```text
+
 src/main/java/util/DBConnection.java
+
+```
 
 
 
@@ -188,21 +218,29 @@ Example configuration:
 
 
 
+```java
+
 private static final String USER = "root";
 
 private static final String PASSWORD = "YOUR\_MYSQL\_PASSWORD";
 
-
-
-Replace YOUR\_MYSQL\_PASSWORD with your own local MySQL password.
-
-
-
-Do not publish your actual MySQL password on GitHub.
+```
 
 
 
-Application Workflow
+Replace `YOUR\_MYSQL\_PASSWORD` with your own local MySQL password.
+
+
+
+\*\*Do not publish your actual MySQL password on GitHub.\*\*
+
+
+
+\## Application Workflow
+
+
+
+```text
 
 User
 
@@ -222,13 +260,15 @@ JDBC
 
 MySQL Database
 
-
-
-Main Modules
+```
 
 
 
-1\. Student Registration
+\## Main Modules
+
+
+
+\### 1. Student Registration
 
 
 
@@ -236,7 +276,7 @@ The registration module allows users to enter student details and store them in 
 
 
 
-2\. Duplicate Student Validation
+\### 2. Duplicate Student Validation
 
 
 
@@ -248,7 +288,7 @@ If the Student ID is already registered, the system displays a message informing
 
 
 
-3\. View Students
+\### 3. View Students
 
 
 
@@ -256,7 +296,7 @@ The application displays registered student records retrieved from the MySQL dat
 
 
 
-4\. Search Student
+\### 4. Search Student
 
 
 
@@ -264,7 +304,7 @@ The search functionality allows users to find student records using the availabl
 
 
 
-5\. Edit Student
+\### 5. Edit Student
 
 
 
@@ -276,7 +316,7 @@ The Student ID is kept unchanged while the remaining student information can be 
 
 
 
-6\. Delete Student
+\### 6. Delete Student
 
 
 
@@ -284,47 +324,55 @@ The delete functionality allows an existing student record to be removed from th
 
 
 
-Advantages
+\## Advantages
 
-Simple and user-friendly interface
 
-Prevents duplicate student registration
 
-Provides complete CRUD functionality
+\- Simple and user-friendly interface
 
-Uses MySQL for persistent data storage
+\- Prevents duplicate student registration
 
-Reduces manual student record management
+\- Provides complete CRUD functionality
 
-Provides easy searching and updating of records
+\- Uses MySQL for persistent data storage
 
-Can be extended with additional student management features
+\- Reduces manual student record management
 
-How to Run
+\- Provides easy searching and updating of records
 
-Install Java JDK.
+\- Can be extended with additional student management features
 
-Install MySQL Server.
 
-Install Apache Tomcat.
 
-Install NetBeans or another compatible Java IDE.
+\## How to Run
 
-Open the Maven project in the IDE.
 
-Create the required MySQL database.
 
-Execute the SQL script available in the database folder.
+1\. Install Java JDK.
 
-Configure the MySQL username and password in DBConnection.java.
+2\. Install MySQL Server.
 
-Build the Maven project.
+3\. Install Apache Tomcat.
 
-Run the application using Apache Tomcat.
+4\. Install NetBeans or another compatible Java IDE.
 
-Open the application in a web browser.
+5\. Open the Maven project in the IDE.
 
-Example Database Setup
+6\. Create the required MySQL database.
+
+7\. Execute the SQL script available in the `database` folder.
+
+8\. Configure the MySQL username and password in `DBConnection.java`.
+
+9\. Build the Maven project.
+
+10\. Run the application using Apache Tomcat.
+
+11\. Open the application in a web browser.
+
+
+
+\## Example Database Setup
 
 
 
@@ -332,7 +380,11 @@ The database can be created using:
 
 
 
+```sql
+
 CREATE DATABASE student\_db;
+
+```
 
 
 
@@ -340,7 +392,11 @@ Then select the database:
 
 
 
+```sql
+
 USE student\_db;
+
+```
 
 
 
@@ -348,19 +404,23 @@ The required table structure can be created using the SQL script provided in the
 
 
 
-Project Objectives
+\## Project Objectives
 
-To develop a web-based student registration and management system.
 
-To store student information using a MySQL database.
 
-To implement CRUD operations using Java and JDBC.
+\- To develop a web-based student registration and management system.
 
-To prevent duplicate student registration.
+\- To store student information using a MySQL database.
 
-To provide facilities for searching, updating and deleting student records.
+\- To implement CRUD operations using Java and JDBC.
 
-Learning Outcomes
+\- To prevent duplicate student registration.
+
+\- To provide facilities for searching, updating and deleting student records.
+
+
+
+\## Learning Outcomes
 
 
 
@@ -368,49 +428,55 @@ After completing this project, the following concepts are demonstrated:
 
 
 
-Understanding of Java web application development.
+\- Understanding of Java web application development.
 
-Understanding of JSP and Java Servlets.
+\- Understanding of JSP and Java Servlets.
 
-Understanding of JDBC database connectivity.
+\- Understanding of JDBC database connectivity.
 
-Implementation of CRUD operations.
+\- Implementation of CRUD operations.
 
-Understanding of MySQL database integration.
+\- Understanding of MySQL database integration.
 
-Development of a basic database-driven web application.
-
-Future Enhancements
-
-User authentication and login
-
-Admin dashboard
-
-Student attendance management
-
-Marks and result management
-
-Student profile management
-
-Export student records
-
-Cloud deployment
-
-Role-based access control
-
-Project Type
+\- Development of a basic database-driven web application.
 
 
 
-Academic Web Application / Mini Project
+\## Future Enhancements
 
 
 
-Author
+\- User authentication and login
+
+\- Admin dashboard
+
+\- Student attendance management
+
+\- Marks and result management
+
+\- Student profile management
+
+\- Export student records
+
+\- Cloud deployment
+
+\- Role-based access control
 
 
 
-Bhumi Jindal
+\## Project Type
+
+
+
+\*\*Academic Web Application / Mini Project\*\*
+
+
+
+\## Author
+
+
+
+\*\*Bhumi Jindal\*\*
 
 
 
@@ -430,7 +496,7 @@ Bhumi Jindal
 
 
 
-!\[Duplicate Student Validation](images/DuplicatedStudent.png)
+!\[Duplicate Student Validation](images/DuplicateStudent.png)
 
 
 
@@ -470,9 +536,5 @@ Bhumi Jindal
 
 
 
-!\[Database](images/Database.png)
-
-
-
-
+!\[Database](images/Datatbase.png)
 
