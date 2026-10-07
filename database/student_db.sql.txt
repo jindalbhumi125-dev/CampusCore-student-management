@@ -1,0 +1,14 @@
+-- CampusCore Student Management System
+-- Database Setup Script
+
+CREATE DATABASE IF NOT EXISTS student_db;
+
+USE student_db;
+
+CREATE TABLE IF NOT EXISTS students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    department VARCHAR(50) NOT NULL,
+    year INT NOT NULL
+);

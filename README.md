@@ -1,213 +1,478 @@
+\# CampusCore – Student Registration \& Management System
 
-# 📘 Student Registration Web Application
 
-## 📌 Project Overview
 
-The **Student Registration Web Application** is a simple Java web application built using **Java Servlets, JSP, JDBC, MySQL, and Apache Tomcat**.
-It allows users to:
+CampusCore is a Java-based web application developed for registering and managing student records through a simple and user-friendly web interface.
 
-* Register students using a web form
-* Store student data in a MySQL database
-* View all registered students in a tabular format
 
-This project demonstrates **MVC architecture**, **database connectivity**, and **Java EE web development fundamentals**.
 
----
+The system provides database-backed student management functionality using Java Servlets, JSP, JDBC and MySQL. It allows users to register students, view records, search for students, update student information and delete student records.
 
-## 🛠️ Technologies Used
 
-* **Java (JDK 17+ / JDK 25)**
-* **Jakarta Servlet API**
-* **JSP (JavaServer Pages)**
-* **JDBC**
-* **MySQL**
-* **Apache Tomcat 10.1.x**
-* **Maven**
-* **Bootstrap 5 (Frontend styling)**
 
----
+\## Features
 
-## 📂 Project Structure
 
-```
-StudentRegistrationApp
+
+\- Student Registration
+
+\- Duplicate Student ID Validation
+
+\- View All Students
+
+\- Search Students
+
+\- Edit Student Details
+
+\- Delete Student Records
+
+\- MySQL Database Integration
+
+\- JSP-based Web Interface
+
+\- Java Servlet Backend
+
+\- JDBC Database Connectivity
+
+\- CRUD Operations
+
+
+
+\## Technologies Used
+
+
+
+\- Java
+
+\- JSP
+
+\- Jakarta Servlets
+
+\- JDBC
+
+\- MySQL
+
+\- Apache Tomcat
+
+\- Maven
+
+\- HTML
+
+\- CSS
+
+
+
+\## CRUD Operations
+
+
+
+| Operation | Feature |
+
+|-----------|---------|
+
+| Create | Register Student |
+
+| Read | View and Search Students |
+
+| Update | Edit Student Details |
+
+| Delete | Delete Student Records |
+
+
+
+\## Project Structure
+
+
+
+```text
+
+CampusCore-Student-Management
+
 │
+
 ├── src
+
 │   └── main
+
 │       ├── java
-│       │   ├── controller
-│       │   │   ├── RegisterStudentServlet.java
-│       │   │   └── ShowStudentsServlet.java
-│       │   │
-│       │   ├── dao
-│       │   │   └── StudentDAO.java
-│       │   │
+
 │       │   ├── model
+
 │       │   │   └── Student.java
+
 │       │   │
+
+│       │   ├── servlet
+
+│       │   │   ├── RegisterStudentServlet.java
+
+│       │   │   ├── ShowStudentsServlet.java
+
+│       │   │   ├── EditStudentServlet.java
+
+│       │   │   ├── DeleteStudentServlet.java
+
+│       │   │   └── SearchStudentServlet.java
+
+│       │   │
+
 │       │   └── util
+
 │       │       └── DBConnection.java
+
 │       │
+
 │       └── webapp
+
 │           ├── index.jsp
+
 │           ├── students.jsp
+
+│           ├── edit.jsp
+
+│           ├── search.jsp
+
 │           └── WEB-INF
-│               └── web.xml
+
 │
+
+├── database
+
+│   └── student\_db.sql
+
+│
+
 ├── pom.xml
-└── README.md
-```
 
----
+├── README.md
 
-## 🧩 Application Features
+└── .gitignore
 
-### ✅ Student Registration
+Database
 
-* User inputs **Name**, **Email**, and **Year**
-* Data is validated and stored in MySQL
 
-### ✅ View All Students
 
-* Displays all registered students in a table
-* Clean and responsive UI using Bootstrap
+The application uses MySQL to store and manage student records.
 
----
 
-## 🗄️ Database Setup (MySQL)
 
-### 1️⃣ Create Database
+The database setup script is provided in:
 
-```sql
-CREATE DATABASE studentdb;
-USE studentdb;
-```
 
-### 2️⃣ Create Table
 
-```sql
-CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    email VARCHAR(100),
-    year INT
-);
-```
+database/student\_db.sql
 
-### 3️⃣ Update Database Credentials
 
-Edit `DBConnection.java`:
 
-```java
-private static final String URL = "jdbc:mysql://localhost:3306/studentdb";
+The database contains student information required by the application.
+
+
+
+Database Configuration
+
+
+
+The database connection is handled through:
+
+
+
+src/main/java/util/DBConnection.java
+
+
+
+The application uses JDBC to establish a connection between the Java application and MySQL.
+
+
+
+Example configuration:
+
+
+
 private static final String USER = "root";
-private static final String PASSWORD = "your_password";
-```
 
----
-
-## ▶️ How to Run the Project (Step by Step)
-
-### 1️⃣ Install Required Software
-
-* Java JDK
-* Apache Maven
-* MySQL Server
-* Apache Tomcat 10.1.x
-* IntelliJ IDEA (Recommended)
-
----
-
-### 2️⃣ Open Project in IntelliJ IDEA
-
-* **File → Open → Select project folder**
-* Wait for **Maven dependencies** to download
-
----
-
-### 3️⃣ Configure Tomcat Server
-
-* **Run → Edit Configurations**
-* Add **Tomcat Server (Local)**
-* Deployment:
-
-    * Select **StudentRegistrationApp: war exploded**
-* Port: `8080`
-
----
-
-### 4️⃣ Start MySQL Server
-
-* Start MySQL from:
-
-    * **XAMPP / MySQL Installer / Services**
-* Confirm MySQL is running
-
----
-
-### 5️⃣ Run the Application
-
-* Click **Run ▶**
-* Open browser and visit:
-
-```
-http://localhost:8080/StudentRegistrationApp/
-```
-
----
-
-## 🌐 Application URLs
-
-| Feature              | URL          |
-| -------------------- | ------------ |
-| Student Registration | `/index.jsp` |
-| View Students        | `/show_all`  |
-
----
-
-## 🖼 Sample Screenshots
-
-### 🔹 Student Registration Page
-
-![Student Registration Form](images/studentRegisterSystem.jpg)
+private static final String PASSWORD = "YOUR\_MYSQL\_PASSWORD";
 
 
----
 
-## 🧪 Sample Workflow
+Replace YOUR\_MYSQL\_PASSWORD with your own local MySQL password.
 
-1. Open Registration Page
-2. Enter student details
-3. Click **Register**
-4. Click **View All Students**
-5. Data appears in the table
 
----
 
-## 📐 Architecture (MVC)
+Do not publish your actual MySQL password on GitHub.
 
-* **Model:** `Student.java`
-* **View:** `index.jsp`, `students.jsp`
-* **Controller:** Servlets
-* **DAO:** Handles database operations
 
----
 
-## 📌 Future Enhancements
+Application Workflow
 
-* Edit & delete students
-* Search and filter
-* Pagination
-* Login system
-* REST API version
+User
 
----
+&#x20; ↓
 
-## 👨‍🎓 Author
+JSP / HTML Interface
 
-**Name:** Petros Sisay
+&#x20; ↓
 
-**Course:** Advanced Java Programming
+Java Servlet
 
-**Project Type:** Academic / Learning Project
+&#x20; ↓
+
+JDBC
+
+&#x20; ↓
+
+MySQL Database
+
+
+
+Main Modules
+
+
+
+1\. Student Registration
+
+
+
+The registration module allows users to enter student details and store them in the MySQL database.
+
+
+
+2\. Duplicate Student Validation
+
+
+
+Before registering a student, the application checks whether the Student ID already exists in the database.
+
+
+
+If the Student ID is already registered, the system displays a message informing the user that the student is already registered.
+
+
+
+3\. View Students
+
+
+
+The application displays registered student records retrieved from the MySQL database.
+
+
+
+4\. Search Student
+
+
+
+The search functionality allows users to find student records using the available student information.
+
+
+
+5\. Edit Student
+
+
+
+The edit functionality allows existing student information to be updated.
+
+
+
+The Student ID is kept unchanged while the remaining student information can be modified.
+
+
+
+6\. Delete Student
+
+
+
+The delete functionality allows an existing student record to be removed from the database.
+
+
+
+Advantages
+
+Simple and user-friendly interface
+
+Prevents duplicate student registration
+
+Provides complete CRUD functionality
+
+Uses MySQL for persistent data storage
+
+Reduces manual student record management
+
+Provides easy searching and updating of records
+
+Can be extended with additional student management features
+
+How to Run
+
+Install Java JDK.
+
+Install MySQL Server.
+
+Install Apache Tomcat.
+
+Install NetBeans or another compatible Java IDE.
+
+Open the Maven project in the IDE.
+
+Create the required MySQL database.
+
+Execute the SQL script available in the database folder.
+
+Configure the MySQL username and password in DBConnection.java.
+
+Build the Maven project.
+
+Run the application using Apache Tomcat.
+
+Open the application in a web browser.
+
+Example Database Setup
+
+
+
+The database can be created using:
+
+
+
+CREATE DATABASE student\_db;
+
+
+
+Then select the database:
+
+
+
+USE student\_db;
+
+
+
+The required table structure can be created using the SQL script provided in the project.
+
+
+
+Project Objectives
+
+To develop a web-based student registration and management system.
+
+To store student information using a MySQL database.
+
+To implement CRUD operations using Java and JDBC.
+
+To prevent duplicate student registration.
+
+To provide facilities for searching, updating and deleting student records.
+
+Learning Outcomes
+
+
+
+After completing this project, the following concepts are demonstrated:
+
+
+
+Understanding of Java web application development.
+
+Understanding of JSP and Java Servlets.
+
+Understanding of JDBC database connectivity.
+
+Implementation of CRUD operations.
+
+Understanding of MySQL database integration.
+
+Development of a basic database-driven web application.
+
+Future Enhancements
+
+User authentication and login
+
+Admin dashboard
+
+Student attendance management
+
+Marks and result management
+
+Student profile management
+
+Export student records
+
+Cloud deployment
+
+Role-based access control
+
+Project Type
+
+
+
+Academic Web Application / Mini Project
+
+
+
+Author
+
+
+
+Bhumi Jindal
+
+
+
+\## Screenshots
+
+
+
+\### Student Registration
+
+
+
+!\[Student Registration](images/Registration.png)
+
+
+
+\### Duplicate Student Validation
+
+
+
+!\[Duplicate Student Validation](images/DuplicatedStudent.png)
+
+
+
+\### Student Records
+
+
+
+!\[Student Records](images/Studentlist.png)
+
+
+
+\### Search Student
+
+
+
+!\[Search Student](images/search.png)
+
+
+
+\### Edit Student
+
+
+
+!\[Edit Student](images/Edit.png)
+
+
+
+\### Delete Student
+
+
+
+!\[Delete Student](images/Delete.png)
+
+
+
+\### Database
+
+
+
+!\[Database](images/Database.png)
+
+
+
+
 
